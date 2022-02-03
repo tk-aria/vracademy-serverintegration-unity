@@ -16,7 +16,10 @@ namespace VRAcademy.HttpBasic
         [SerializeField] InputField nameField;
         [SerializeField] InputField mailField;
 
-        public async void SendRequest()
+        public void OnEnterInputForm()
+            => SendRequestAsync().Forget();
+
+        public async UniTaskVoid SendRequestAsync()
         {
             var user = await Request(Utility.HostName + "/user/test", new User { name = nameField.text, email = mailField.text });
             Debug.Log($"response => name:{user.name}, email:{user.email}");

@@ -12,6 +12,7 @@ namespace VRAcademy.HttpBasic
     internal sealed class Example05 : MonoBehaviour
     {
         [SerializeField] private AudioSource audioSource;
+        [SerializeField] private string assetName = "sample.wav";
 
         void Update()
         {
@@ -24,7 +25,7 @@ namespace VRAcademy.HttpBasic
 
         async UniTaskVoid SendRequestAsync()
         {
-            var res = await Request(Utility.HostName + "/assets/sample.wav");
+            var res = await Request($"{Utility.HostName}/assets/{assetName}");
             if (audioSource.isPlaying)
             {
                 audioSource.Stop();
