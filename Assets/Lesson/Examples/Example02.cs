@@ -6,7 +6,7 @@ using UnityEngine.Networking;
 using UnityEngine.UI;
 using Cysharp.Threading.Tasks;
 
-namespace VRAcademy.Advanced.ServerIntegration
+namespace VRAcademy.HttpBasic
 {
 
     internal sealed class Example02 : MonoBehaviour

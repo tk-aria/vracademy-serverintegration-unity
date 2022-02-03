@@ -5,7 +5,7 @@ using UnityEngine.Networking;
 using System.Threading;
 using Cysharp.Threading.Tasks;
 
-namespace VRAcademy.Advanced.ServerIntegration
+namespace VRAcademy.HttpBasic
 {
     internal sealed class Example08 : MonoBehaviour
     {
@@ -22,7 +22,7 @@ namespace VRAcademy.Advanced.ServerIntegration
                     //CancelAfterSlim(TimeSpan.FromSeconds(this.timeout));
 
                     var sw = System.Diagnostics.Stopwatch.StartNew();
-                    await req.SendWebRequest().ToUniTask(Progress.Create<float>(x => Debug.Log($"progress: {x*100}, Elapsed: {sw.Elapsed}")));
+                    await req.SendWebRequest().ToUniTask(Progress.Create<float>(x => Debug.Log($"progress: {x * 100}, Elapsed: {sw.Elapsed}")));
 
                     Debug.Log($"completed => {req.url}");
                 }
@@ -43,7 +43,7 @@ namespace VRAcademy.Advanced.ServerIntegration
                     {
                         case UnityWebRequest.Result.InProgress:
                             break;
-                    
+
                         case UnityWebRequest.Result.ConnectionError:// isNetworkError
                             {
                                 if (uwe.Error == "Request timeout")
@@ -52,13 +52,13 @@ namespace VRAcademy.Advanced.ServerIntegration
                                 }
                             }
                             break;
-                    
+
                         case UnityWebRequest.Result.ProtocolError:// isHttpError
                             break;
-                    
+
                         case UnityWebRequest.Result.DataProcessingError:
                             break;
-                    
+
                         default:
                             break;
                     }

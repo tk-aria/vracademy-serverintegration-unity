@@ -8,7 +8,7 @@ using UnityEngine.Networking;
 using UnityEngine.UI;
 using Cysharp.Threading.Tasks;
 
-namespace VRAcademy.Advanced.ServerIntegration
+namespace VRAcademy.HttpBasic
 {
 
     internal sealed class Example05 : MonoBehaviour
@@ -20,7 +20,8 @@ namespace VRAcademy.Advanced.ServerIntegration
             if (Input.GetKeyDown(KeyCode.P))
             {
                 Debug.Log("Send Request");
-                UniTask.RunOnMainThread(async () => {
+                UniTask.RunOnMainThread(async () =>
+                {
                     //var res = await Request(Utility.HostName + "/assets/sample.wav");
                 });
             }

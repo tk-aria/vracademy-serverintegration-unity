@@ -8,7 +8,7 @@ using UnityEngine.Networking;
 using UnityEngine.UI;
 using Cysharp.Threading.Tasks;
 
-namespace VRAcademy.Advanced.ServerIntegration
+namespace VRAcademy.HttpBasic
 {
 
     internal sealed class Example03 : MonoBehaviour
@@ -22,12 +22,12 @@ namespace VRAcademy.Advanced.ServerIntegration
 
         private async UniTask<User> Request(string url, User user)
         {
-            var json     = JsonUtility.ToJson( user );
-            var payload = Encoding.UTF8.GetBytes( json );
+            var json = JsonUtility.ToJson(user);
+            var payload = Encoding.UTF8.GetBytes(json);
 
-            using (var req = new UnityWebRequest(url, UnityWebRequest.kHttpVerbPOST, new DownloadHandlerBuffer(), new UploadHandlerRaw( payload )))
+            using (var req = new UnityWebRequest(url, UnityWebRequest.kHttpVerbPOST, new DownloadHandlerBuffer(), new UploadHandlerRaw(payload)))
             {
-                req.SetRequestHeader( "Content-Type", "application/json" );
+                req.SetRequestHeader("Content-Type", "application/json");
 
                 await req.SendWebRequest();
 
